@@ -1,0 +1,482 @@
+@charset "utf-8";
+.body {
+	width: 100%; 
+	height: 100%; 
+	background: linear-gradient(#D3E2F950, #CF93BD50, #84A3FF50, #5881FD50); 
+	padding: 40px 0; 
+	font-family: 'Segoe', 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', 'Verdana', 'sans-serif'; 
+	color: #51565d;
+	margin: 0;
+	position: relative;
+}
+
+.calendar-container {
+	width: 90%;
+	margin: auto;
+	overflow: hidden;
+	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); 
+	border-radius: 30px;
+	background: rgba(255,255,255,0.6);
+	max-width: 1200px;
+}
+
+.calendar-header {
+	text-align: center;
+	padding: 20px 0;
+	background: linear-gradient(to bottom, rgba(250, 251, 253,1) ,rgba(255,255,255,0.2));
+	border-bottom: 1px solid rgba(166, 168, 179, 0.12);
+}
+
+h1 {
+	margin: 0; 
+	font-size: 18px;
+}
+
+em {
+	margin: 5px 0 0 0; 
+	font-size: 13px; 
+	font-weight: 600; 
+	color: rgba(#51565d, .4);
+}
+.calendar {
+	display: grid; 
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: 50px; 
+	grid-auto-rows: 120px;
+	overflow: auto;
+}
+
+.day-name-left{
+	font-size: 12px; 
+	text-transform: uppercase; 
+	color: #99a1a7; 
+	text-align: center;
+	background-color: white;
+	border-radius: 30px 0 0 30px;
+	margin: 5px 0 5px 10px;
+	line-height: 40px; 
+	font-weight: 500;
+	box-shadow: inset 0px 6px 6px -3px rgba(0,0,0,0.16);
+}
+.day-name-right {
+	font-size: 12px; 
+	text-transform: uppercase; 
+	color: #99a1a7; 
+	text-align: center; 
+	background-color: white;
+	border-radius: 0 30px 30px 0;
+	margin: 5px 10px 5px 0;
+	line-height: 40px; 
+	font-weight: 500;
+	box-shadow: inset 0px 6px 6px -3px rgba(0,0,0,0.16);
+}
+.day-name {
+	font-size: 12px; 
+	text-transform: uppercase; 
+	color: #99a1a7; 
+	text-align: center; 
+	background-color: white;
+	margin: 5px 0 5px 0;
+	line-height: 40px; 
+	font-weight: 500;
+	box-shadow: inset 0px 6px 6px -3px rgba(0,0,0,0.16);
+}
+.day--disabled {
+	border-bottom: 1px solid rgba(112,112,112, 0.12); 
+	border-right: 1px solid rgba(112,112,112, 0.12); 
+	text-align: center; 
+	padding: 14px 20px; 
+	letter-spacing: 1px; 
+	font-size: 12px; 
+	font-weight: bold;
+	box-sizing: border-box; 
+	position: relative; 
+	color: rgba(80,80,80,0.5);
+	pointer-events: none; 
+	z-index: 1; background-image: repeating-linear-gradient(-45deg,
+  rgba(188,188,188,0.15),
+  rgba(158,158,158,0.15) 10px,
+  rgba(255,255,255,0) 10px,
+  rgba(255,255,255,0) 20px); 
+	cursor: not-allowed;
+}
+.day {
+	border-bottom: 1px solid rgba(112,112,112, 0.12); 
+	border-right: 1px solid rgba(112,112,112, 0.12); 
+	text-align: center; 
+	padding: 10px 20px; 
+	letter-spacing: 1px; 
+	font-size: 12px;
+	font-weight: bold;
+	box-sizing: border-box; 
+	color: rgba(80,80,80,1); 
+	position: relative; 
+	pointer-events: none; 
+	z-index: 1;
+}
+h3 {
+	margin: 0; 
+	font-size: 16px; 
+	color: rgba(0,0,0,0.5);
+}
+.class--bar {
+	border-left-width: 3px; 
+	padding: 8px 12px; 
+	margin: 10px; 
+	border-left-style: solid; 
+	font-size: 14px; 
+	position: relative; 
+	border-left-color: #009E5C; 
+	background: #B2D3BA; 
+	align-self: center; 
+	color:  #009E5C; 
+	margin-top: -5px;
+}
+
+.book {
+   display: block;
+  width: 70%;
+  margin: auto;
+    }
+
+.exclaim{
+	display: block;
+  width: 20%;
+  margin: auto;
+}
+
+.checkpt{
+	display: block;
+  width: 70%;
+  margin: auto;
+}
+
+.people{
+	display: block;
+  width: 70%;
+  margin: auto;
+}
+
+.button-div{
+	height:0;
+	width:22%;
+	padding-bottom:22%;
+	top: 50%;
+	position: relative;
+	 display: inline-block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.popup {
+	height:0;
+	width:22%;
+	padding-bottom:22%;
+	margin-left: 2px;
+	top: 50%;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.button-class{
+	height: 100%;
+	width: 100%;
+    background-color: rgba(104, 240, 241, 1.0);
+	border-radius: 50%;
+	box-shadow: inset 0px 3px 6px 0px rgba(0,0,0,0.16), 0px 3px 6px 0px rgba(0,0,0,0.16);
+	float: left;
+	display: flex;
+	justify-content: center;
+	border: none;
+	position: absolute;
+	transition-duration: 0.2s;
+	cursor: pointer;
+}
+.button-class:hover{
+	background-color: #40AAD7;
+}
+.button-remind{
+	height: 100%;
+	width: 100%;
+    background-color: rgba(238,72,160, 1.0);
+	border-radius: 50%;
+	box-shadow: inset 0px 3px 6px 0px rgba(0,0,0,0.16), 0px 3px 6px 0px rgba(0,0,0,0.16);
+	float: left;
+	display: flex;
+	justify-content: center;
+	border: none;
+	position: absolute;
+	transition-duration: 0.2s;
+	cursor: pointer;
+}
+.button-remind:hover{
+	background-color: #F01444;
+}
+.button-check{
+	height: 100%;
+	width: 100%;
+    background-color: rgba(241,138,49, 1.0);
+	border-radius: 50%;
+	box-shadow: inset 0px 3px 6px 0px rgba(0,0,0,0.16), 0px 3px 6px 0px rgba(0,0,0,0.16);
+	float: left;
+	display: flex;
+	justify-content: center;
+	border: none;
+	position: absolute;
+	transition-duration: 0.2s;
+	cursor: pointer;
+}
+.button-check:hover{
+	background-color: #DD5D10;
+}
+.button-help{
+	height: 100%;
+	width: 100%;
+    background-color: rgba(104,241,141, 1.0);
+	border-radius: 50%;
+	box-shadow: inset 0px 3px 6px 0px rgba(0,0,0,0.16), 0px 3px 6px 0px rgba(0,0,0,0.16);
+	float: left;
+	display: flex;
+	justify-content: center;
+	border: none;
+	position: absolute;
+	transition-duration: 0.2s;
+	cursor: pointer;
+}
+.button-help:hover{
+	background-color: #03BC35;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	
+}
+/* Important part */
+.modal-dialog{
+    overflow-y: initial !important
+}
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 60vw;
+	height: 60vh;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+	border-radius: 30px;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: rgba(61,61,61,1.00);
+    font-size: 28px;
+    font-weight: bold;
+	top: 50%;
+	-ms-transform: translateY(50%);
+  transform: translateY(50%);
+	float: right;	
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+	font-family: 'Segoe', 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', 'Verdana', 'sans-serif'; 
+    padding: 2px 16px;
+    color: rgba(61,61,61,1.00);
+	border-radius: 30px 30px 0 0;
+}
+
+.modal-body {
+	font-family: 'Segoe', 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', 'Verdana', 'sans-serif'; 
+	height: 45vh;
+	padding: 0 16px 0 16px;
+	margin: 0 16px 0 16px;
+	overflow-y: auto;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    color: white;
+	border-radius: 0 0 30px 30px;
+}
+/* width */
+::-webkit-scrollbar {
+  padding-right: 10px;
+	width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(223,223,223,1.00); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(166,163,163,1.00); 
+}
+.task__detail {
+	position: absolute; 
+	width: 750px; 
+	top: 50%; 
+	left: 50%; 
+	transform: translate(-50%, -50%); 
+	background: #fff; 
+	border: 1px solid rgba(166, 168, 179, 0.2); 
+	color: #000; 
+	padding: 10px; 
+	box-sizing: border-box; 
+	border-radius: 30px; 
+	box-shadow: 0 10px 40px rgba(1,16,43,0.70);  
+	z-index: 2;
+}
+.task__header {
+	width: 95%; 
+	display: table-cell; 
+	background: #BFE9EB; 
+	text-align: center; 
+	padding: 5px 0; 
+	border-radius: 4px;
+}
+h3 {
+	margin: 0; 
+	font-size: 16px; 
+	color: rgba(0,0,0,0.5);
+}
+.task__chapter {
+	font-size: 14px; 
+	font-weight: 500;
+}
+.task__list {
+	margin-top: 0px; 
+	font-size: 14px; 
+	margin-bottom: 5px; 
+	font-weight: 500; 
+	color: rgba(81,86,93,0.7);
+}
+li {
+	font-size: 14px;
+	color: rgba(81,86,93,0.7);
+}
+.assignment--bar {
+	border-left-width: 3px; 
+	padding: 4px 4px; 
+	margin: 10px; 
+	border-left-style: solid; 
+	font-size: 12px; position: relative; 
+	background:  #009E5C; 
+	border: 0; 
+	border-radius: 4px; 
+	align-self: end; 
+	color: #fff; 
+	box-shadow: 0 10px 14px rgba(71,134,255,0.4);
+}
+.assignment__detail {
+	position: absolute;
+	left: 0;
+	background: #fff; 
+	border: 1px solid rgba(166, 168, 179, 0.2); 
+	color: #000; 
+	padding: 10px; 
+	box-sizing: border-box; 
+	border-radius: 4px; 
+	box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
+	z-index: 2;
+}
+.assignment__text {
+	margin-top: 0px;  
+	margin-bottom: 0; 
+	font-weight: 500; 
+	color: rgba(81,86,93,0.7);
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #929292;
+  color: #fff;
+  text-align: center;
+font-size: 10pt;
+  border-radius: 6px;
+  padding: 2px 0;
+  position: absolute;
+  z-index: 5;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #929292 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
