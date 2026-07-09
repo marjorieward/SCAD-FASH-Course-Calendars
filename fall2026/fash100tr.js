@@ -276,3 +276,11 @@ for (let i = 0; i < 3; i++) {
 document.getElementById("closeModal").addEventListener("click", () => {
     document.getElementById("myModal").classList.remove("show");
 });
+
+// Modal close button
+const closeModal = document.getElementById("closeModal");
+const modal = document.getElementById("myModal");
+
+closeModal.addEventListener("click", () => {
+    modal.classList.remove("show");
+});
