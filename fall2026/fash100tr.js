@@ -36,103 +36,6 @@ const events = {
       content: "templates/Class04_Content.html",
       icon: "../icons/iconClass.svg"
 	}],
-	"2026-09-29":[{
-		type: "class",
-      title: "templates/Title_05.html",
-      content: "templates/Class05_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
-	"2026-10-01":[{
-		type: "class",
-      title: "templates/Title_06.html",
-      content: "templates/Class06_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
-	"2026-10-06":[{
-		type: "class",
-      title: "templates/Title_07.html",
-      content: "templates/Class07_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
-	"2026-10-08":[{
-		type: "class",
-      title: "templates/Title_08.html",
-      content: "templates/Class08_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
-	"2026-10-13":[{
-		type: "class",
-      title: "templates/Title_09.html",
-      content: "templates/Class09_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
-	"2026-10-15":[{
-		type: "class",
-      title: "templates/Title_10.html",
-      content: "templates/Class10_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
-	"2026-10-20":[{
-		type: "class",
-      title: "templates/Title_11.html",
-      content: "templates/Class11_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
-	"2026-10-22":[{
-		type: "class",
-      title: "templates/Title_12.html",
-      content: "templates/Class12_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
-	"2026-10-27":[{
-		type: "class",
-      title: "templates/Title_13.html",
-      content: "templates/Class13_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
-	"2026-10-29":[{
-		type: "class",
-      title: "templates/Title_14.html",
-      content: "templates/Class14_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
-	"2026-11-03":[{
-		type: "class",
-      title: "templates/Title_15.html",
-      content: "templates/Class15_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
-	"2026-11-05":[{
-		type: "class",
-      title: "templates/Title_16.html",
-      content: "templates/Class16_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
-	"2026-11-10":[{
-		type: "class",
-      title: "templates/Title_17.html",
-      content: "templates/Class17_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
-	"2026-11-12":[{
-		type: "class",
-      title: "templates/Title_18.html",
-      content: "templates/Class18_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
-	"2026-11-17":[{
-		type: "class",
-      title: "templates/Title_19.html",
-      content: "templates/Class19_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
-	"2026-11-19":[{
-		type: "class",
-      title: "templates/Title_20.html",
-      content: "templates/Class20_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
-	
 	
 };
 
@@ -232,16 +135,18 @@ function createMonth(year, month) {
 
          button.addEventListener("click", async () => {
 
-  const titleResponse = await fetch(eventData.title);
-  const contentResponse = await fetch(eventData.content);
+    console.log("Event button clicked:", eventData);
 
-  document.getElementById("modal-title").innerHTML =
-      await titleResponse.text();
+    const titleResponse = await fetch(eventData.title);
+    const contentResponse = await fetch(eventData.content);
 
-  document.getElementById("modal-body").innerHTML =
-      await contentResponse.text();
+    document.getElementById("modal-title").innerHTML =
+        await titleResponse.text();
 
-  document.getElementById("myModal").classList.add("show");
+    document.getElementById("modal-body").innerHTML =
+        await contentResponse.text();
+
+    document.getElementById("myModal").classList.add("show");
 
 });
 		
