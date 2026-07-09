@@ -41,6 +41,17 @@ em {
 	font-weight: 600; 
 	color: rgba(#51565d, .4);
 }
+.month-container {
+    margin-bottom: 40px;
+}
+
+.month-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
 .calendar {
 	display: grid; 
 	grid-template-columns: repeat(7, 1fr);
