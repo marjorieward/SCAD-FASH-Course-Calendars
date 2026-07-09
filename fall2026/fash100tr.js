@@ -230,14 +230,21 @@ function createMonth(year, month) {
 
           button.appendChild(icon);
 
-          button.addEventListener("click", () => {
+         button.addEventListener("click", async () => {
 
-            $('#modal-title').load(eventData.title);
-            $('#modal-body').load(eventData.content);
+  const titleResponse = await fetch(eventData.title);
+  const contentResponse = await fetch(eventData.content);
 
-            $('#myModal').modal('show');
+  document.getElementById("modal-title").innerHTML =
+      await titleResponse.text();
 
-          });
+  document.getElementById("modal-body").innerHTML =
+      await contentResponse.text();
+
+  document.getElementById("myModal").classList.add("show");
+
+});
+		
 
           eventContainer.appendChild(button);
 
@@ -265,3 +272,7 @@ for (let i = 0; i < 3; i++) {
     createMonth(date.getFullYear(), date.getMonth())
   );
 }
+
+document.getElementById("closeModal").addEventListener("click", () => {
+    document.getElementById("myModal").classList.remove("show");
+});
