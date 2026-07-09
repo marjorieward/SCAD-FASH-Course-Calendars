@@ -141,10 +141,12 @@ function formatDate(year, month, day) {
 }
 
 function createMonth(year, month) {
-  const calendar = document.createElement("div");
-  calendar.className = "calendar";
 
-  // --- month title ---
+  // Outer wrapper
+  const monthContainer = document.createElement("div");
+  monthContainer.className = "month-container";
+
+  // Month title
   const title = document.createElement("div");
   title.className = "month-title";
 
@@ -153,89 +155,106 @@ function createMonth(year, month) {
   });
 
   title.textContent = `${monthName} ${year}`;
-  calendar.appendChild(title);
 
-  // --- weekday header row ---
+  // Calendar grid
+  const calendar = document.createElement("div");
+  calendar.className = "calendar";
+
+  // Add title above calendar
+  monthContainer.appendChild(title);
+  monthContainer.appendChild(calendar);
+
+  // Weekday headers
   const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-weekdays.forEach((day, index) => {
-  const el = document.createElement("div");
+  weekdays.forEach((day, index) => {
+    const el = document.createElement("div");
 
-  el.className = "weekday";
-  el.textContent = day;
+    el.className = "weekday";
+    el.textContent = day;
 
-  if (index === 0) {
-    el.classList.add("weekday--sun");
-  }
+    if (index === 0) {
+      el.classList.add("weekday--sun");
+    }
 
-  if (index === 6) {
-    el.classList.add("weekday--sat");
-  }
+    if (index === 6) {
+      el.classList.add("weekday--sat");
+    }
 
-  calendar.appendChild(el);
-});
+    calendar.appendChild(el);
+  });
 
-  // --- calendar days ---
-	
+  // Month data
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const startDay = new Date(year, month, 1).getDay();
 
   const totalCells = startDay + daysInMonth;
 
   for (let i = 0; i < totalCells; i++) {
+
     const cell = document.createElement("div");
 
     const dayNumber = i - startDay + 1;
 
     if (i < startDay) {
+
       cell.className = "day--disabled";
+
     } else {
+
       cell.className = "day";
-      // date number
-const dateLabel = document.createElement("div");
-dateLabel.className = "date-label";
-dateLabel.textContent = dayNumber;
 
-cell.appendChild(dateLabel);
+      // Date number
+      const dateLabel = document.createElement("div");
+      dateLabel.className = "date-label";
+      dateLabel.textContent = dayNumber;
 
-// events
-const key = formatDate(year, month, dayNumber);
+      cell.appendChild(dateLabel);
 
-if (events[key]) {
+      // Events
+      const key = formatDate(year, month, dayNumber);
 
-  const eventContainer = document.createElement("div");
-  eventContainer.className = "event-container";
+      if (events[key]) {
 
-  events[key].forEach(eventData => {
+        const eventContainer = document.createElement("div");
+        eventContainer.className = "event-container";
 
-    const button = document.createElement("button");
-    button.className = "calendar-event-btn";
+        events[key].forEach(eventData => {
 
-    const icon = document.createElement("img");
-    icon.src = eventData.icon;
-    icon.className = "event-icon";
+          const button = document.createElement("button");
+          button.className = "calendar-event-btn";
 
-    button.appendChild(icon);
+          const icon = document.createElement("img");
+          icon.src = eventData.icon;
+          icon.className = "event-icon";
 
-    button.addEventListener("click", () => {
+          button.appendChild(icon);
 
-      $('#modal-title').load(eventData.title);
-      $('#modal-body').load(eventData.content);
+          button.addEventListener("click", () => {
 
-      $('#myModal').modal('show');
-    });
+            $('#modal-title').load(eventData.title);
+            $('#modal-body').load(eventData.content);
 
-    eventContainer.appendChild(button);
-  });
+            $('#myModal').modal('show');
 
-  cell.appendChild(eventContainer);
-}
+          });
+
+          eventContainer.appendChild(button);
+
+        });
+
+        cell.appendChild(eventContainer);
+
+      }
+
     }
 
     calendar.appendChild(cell);
+
   }
 
-  return calendar;
+  return monthContainer;
+
 }
 
 // generate 3 months
