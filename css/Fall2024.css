@@ -2,9 +2,9 @@
 .body {
 	width: 100%; 
 	height: 100%; 
-	background: -webkit-linear-gradient(#CA4D0C50, #E4A90050, #7A001E50, #D3E2F950);
-	background: -o-linear-gradient(#CA4D0C50, #E4A90050, #7A001E50, #D3E2F950);
-	background: linear-gradient(#CA4D0C50, #E4A90050, #7A001E50, #D3E2F950); 
+	background: -webkit-linear-gradient(#CA4D0C50, #E4A90050, #D3E2F950);
+	background: -o-linear-gradient(#CA4D0C50, #E4A90050, #D3E2F950);
+	background: linear-gradient(#CA4D0C50, #E4A90050, #D3E2F950); 
 	padding: 40px 0; 
 	font-family: 'Segoe', 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', 'Verdana', 'sans-serif'; 
 	color: #51565d;
