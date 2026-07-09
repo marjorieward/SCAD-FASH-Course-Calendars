@@ -36,6 +36,12 @@ const events = {
       content: "templates/Class04_Content.html",
       icon: "../icons/iconClass.svg"
 	}],
+	"2026-09-29":[{
+		type: "class",
+      title: "templates/Title_04.html",
+      content: "templates/Class04_Content.html",
+      icon: "../icons/iconClass.svg"
+	}],
 	
 };
 
