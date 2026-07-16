@@ -36,12 +36,8 @@ const events = {
       content: "templates/Class04_Content.html",
       icon: "../icons/iconClass.svg"
 	}],
-	"2026-09-29":[{
-		type: "class",
-      title: "templates/Title_04.html",
-      content: "templates/Class04_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
+	
+	
 	
 };
 
@@ -141,18 +137,16 @@ function createMonth(year, month) {
 
          button.addEventListener("click", async () => {
 
-    console.log("Event button clicked:", eventData);
+  const titleResponse = await fetch(eventData.title);
+  const contentResponse = await fetch(eventData.content);
 
-    const titleResponse = await fetch(eventData.title);
-    const contentResponse = await fetch(eventData.content);
+  document.getElementById("modal-title").innerHTML =
+      await titleResponse.text();
 
-    document.getElementById("modal-title").innerHTML =
-        await titleResponse.text();
+  document.getElementById("modal-body").innerHTML =
+      await contentResponse.text();
 
-    document.getElementById("modal-body").innerHTML =
-        await contentResponse.text();
-
-    document.getElementById("myModal").classList.add("show");
+  document.getElementById("myModal").classList.add("show");
 
 });
 		
@@ -185,7 +179,7 @@ for (let i = 0; i < 3; i++) {
 }
 
 // Modal close button
-/*const closeModal = document.getElementById("closeModal");
+const closeModal = document.getElementById("closeModal");
 const modal = document.getElementById("myModal");
 
 closeModal.addEventListener("click", () => {
