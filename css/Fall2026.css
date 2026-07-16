@@ -121,7 +121,7 @@ em {
 	box-sizing: border-box; 
 	color: rgba(80,80,80,1); 
 	position: relative; 
-	pointer-events: none; 
+	pointer-events: auto; 
 	z-index: 1;
 }
 h3 {
