@@ -7,8 +7,8 @@ let startMonth = 8; // September (0-indexed)
 const events = {
   "2026-09-15": [{
       type: "class",
-      title: "templates/Title_01.html",
-      content: "templates/Class01_Content.html",
+      title: "templates/fash100/Title_01.html",
+      content: "templates/fash100/Class01_Content.html",
       icon: "../icons/iconClass.svg"
     },
 				{
@@ -20,20 +20,20 @@ const events = {
 				],
   "2026-09-17": [{
       type: "class",
-      title: "templates/Title_02.html",
-      content: "templates/Class02_Content.html",
+      title: "templates/fash100/Title_02.html",
+      content: "templates/fash100/Class02_Content.html",
       icon: "../icons/iconClass.svg"
     }],
   "2026-09-22": [{
 	  type: "class",
-      title: "templates/Title_03.html",
-      content: "templates/Class03_Content.html",
+      title: "templates/fash100/Title_03.html",
+      content: "templates/fash100/Class03_Content.html",
       icon: "../icons/iconClass.svg"
   }],
 	"2026-09-24":[{
 		type: "class",
-      title: "templates/Title_04.html",
-      content: "templates/Class04_Content.html",
+      title: "templates/fash100/Title_04.html",
+      content: "templates/fash100/Class04_Content.html",
       icon: "../icons/iconClass.svg"
 	}],
 	
