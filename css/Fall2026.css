@@ -269,7 +269,18 @@ h3 {
 .button-help:hover{
 	background-color: #03BC35;
 }
+.calendar-event-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 2px;
+}
 
+.event-icon {
+    width: 32px;
+    height: 32px;
+    display: block;
+}
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
