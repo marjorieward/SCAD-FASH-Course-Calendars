@@ -1,5 +1,5 @@
 const container = document.getElementById("calendarContainer");
-//FASH 216 MW Fall 2026
+//FASH 100 TR Fall 2026
 let startYear = 2026;
 let startMonth = 8; // September (0-indexed)
 
@@ -13,8 +13,7 @@ const events = {
     },
 				{
       type: "soft",
-      title: "../templates/Assignment_Title.html",
-      content: "../templates/Assignment_Content.html",
+      message: "Project 1 proposal due before class.",
       icon: "../icons/iconSoft.svg"
     }
 				],
@@ -23,13 +22,25 @@ const events = {
       title: "../templates/fash100/Title_02.html",
       content: "../templates/fash100/Class02_Content.html",
       icon: "../icons/iconClass.svg"
-    }],
+    },
+				{
+    type: "grade",
+    message: "Project 1 due before 11:59 PM.",
+    icon: "../icons/iconGrade.svg"
+}
+				],
   "2026-09-22": [{
 	  type: "class",
       title: "../templates/fash100/Title_03.html",
       content: "../templates/fash100/Class03_Content.html",
       icon: "../icons/iconClass.svg"
-  }],
+  },
+	{
+    type: "extra",
+    message: "Open Lab: Thursday 5–7 PM in Room 212.",
+    icon: "../icons/iconExtra.svg"
+}			
+				],
 	"2026-09-24":[{
 		type: "class",
       title: "../templates/fash100/Title_04.html",
@@ -128,6 +139,18 @@ function createMonth(year, month) {
 
           const button = document.createElement("button");
           button.className = "calendar-event-btn";
+			let popup = null;
+
+if (eventData.type !== "class") {
+
+    popup = document.createElement("span");
+    popup.className = "popuptext";
+    popup.textContent = eventData.message;
+
+    button.classList.add("popup");
+    button.appendChild(popup);
+
+}
 
           const icon = document.createElement("img");
           icon.src = eventData.icon;
@@ -137,16 +160,27 @@ function createMonth(year, month) {
 
          button.addEventListener("click", async () => {
 
-  const titleResponse = await fetch(eventData.title);
-  const contentResponse = await fetch(eventData.content);
+    if (eventData.type === "class") {
 
-  document.getElementById("modal-title").innerHTML =
-      await titleResponse.text();
+        const titleResponse = await fetch(eventData.title);
+        const contentResponse = await fetch(eventData.content);
 
-  document.getElementById("modal-body").innerHTML =
-      await contentResponse.text();
+        document.getElementById("modal-title").innerHTML =
+            await titleResponse.text();
 
-  document.getElementById("myModal").classList.add("show");
+        document.getElementById("modal-body").innerHTML =
+            await contentResponse.text();
+
+        document.getElementById("myModal").classList.add("show");
+
+    } else {
+
+        document.querySelectorAll(".popuptext.show")
+            .forEach(el => el.classList.remove("show"));
+
+        popup.classList.toggle("show");
+
+    }
 
 });
 		
