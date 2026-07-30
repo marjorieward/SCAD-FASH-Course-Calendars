@@ -262,9 +262,4 @@ const modal = document.getElementById("myModal");
 closeModal.addEventListener("click", () => {
     modal.classList.remove("show");
 });
-	document.addEventListener("click", () => {
-
-    document.querySelectorAll(".popuptext.show")
-        .forEach(el => el.classList.remove("show"));
-
-});
+	
