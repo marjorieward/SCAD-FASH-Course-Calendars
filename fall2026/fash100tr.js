@@ -13,7 +13,7 @@ const events = {
     },
 				{
       type: "soft",
-      message: "Project 1 proposal due before class.",
+      tooltip: "Project 1 proposal due before class.",
       icon: "../icons/iconSoft.svg"
     }
 				],
@@ -25,7 +25,7 @@ const events = {
     },
 				{
     type: "grade",
-    message: "Project 1 due before 11:59 PM.",
+    tooltip: "Project 1 due before 11:59 PM.",
     icon: "../icons/iconGrade.svg"
 }
 				],
@@ -37,7 +37,7 @@ const events = {
   },
 	{
     type: "extra",
-    message: "Open Lab: Thursday 5–7 PM in Room 212.",
+    tooltip: "Open Lab: Thursday 5–7 PM in Room 212.",
     icon: "../icons/iconExtra.svg"
 }			
 				],
