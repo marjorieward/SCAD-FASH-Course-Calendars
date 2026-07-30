@@ -5,18 +5,29 @@ let startMonth = 8; // September (0-indexed)
 
 // example event data (optional)
 const events = {
-  "2026-09-15": [{
-      type: "class",
-      title: "../templates/fash100/Title_01.html",
-      content: "../templates/fash100/Class01_Content.html",
-      icon: "../icons/iconClass.svg"
-    },
-				{
-      type: "soft",
-      tooltip: "Project 1 proposal due before class.",
-      icon: "../icons/iconSoft.svg"
-    }
-				],
+  "2026-09-15": [
+{
+    type: "class",
+    title: "templates/Title_01.html",
+    content: "templates/Class01_Content.html",
+    icon: "../icons/iconClass.svg"
+},
+{
+    type: "soft",
+    tooltip: "Bring your patternmaking kit.",
+    icon: "../icons/iconSoft.svg"
+},
+{
+    type: "grade",
+    tooltip: "Quiz 1 closes tonight at 11:59 PM.",
+    icon: "../icons/iconGrade.svg"
+},
+{
+    type: "extra",
+    tooltip: "Open Lab: 5:00–7:00 PM.",
+    icon: "../icons/iconExtra.svg"
+}
+],
   "2026-09-17": [{
       type: "class",
       title: "../templates/fash100/Title_02.html",
@@ -130,70 +141,102 @@ function createMonth(year, month) {
       // Events
       const key = formatDate(year, month, dayNumber);
 
-      if (events[key]) {
+if (events[key]) {
 
-        const eventContainer = document.createElement("div");
-        eventContainer.className = "event-container";
+    const eventContainer = document.createElement("div");
+    eventContainer.className = "event-container";
 
-        events[key].forEach(eventData => {
+    events[key].forEach(eventData => {
 
-          const button = document.createElement("button");
-          button.className = "calendar-event-btn";
-			let popup = null;
+        //---------------------------------
+        // Create button
+        //---------------------------------
 
-if (eventData.type !== "class") {
+        const button = document.createElement("button");
 
-    popup = document.createElement("span");
-    popup.className = "popuptext";
-    popup.textContent = eventData.message;
+        button.className =
+            `calendar-event-btn calendar-event-btn--${eventData.type}`;
 
-    button.classList.add("popup");
-    button.appendChild(popup);
+        button.title = eventData.type;
 
-}
+        //---------------------------------
+        // Icon
+        //---------------------------------
 
-          const icon = document.createElement("img");
-          icon.src = eventData.icon;
-          icon.className = "event-icon";
+        const icon = document.createElement("img");
 
-          button.appendChild(icon);
+        icon.src = eventData.icon;
+        icon.className = "event-icon";
 
-         button.addEventListener("click", async () => {
+        button.appendChild(icon);
 
-    if (eventData.type === "class") {
+        //---------------------------------
+        // Popup (everything except class)
+        //---------------------------------
 
-        const titleResponse = await fetch(eventData.title);
-        const contentResponse = await fetch(eventData.content);
+        let popup = null;
 
-        document.getElementById("modal-title").innerHTML =
-            await titleResponse.text();
+        if (eventData.type !== "class") {
 
-        document.getElementById("modal-body").innerHTML =
-            await contentResponse.text();
+            popup = document.createElement("span");
 
-        document.getElementById("myModal").classList.add("show");
+            popup.className = "popuptext";
+            popup.textContent = eventData.message;
 
-    } else {
+            button.classList.add("popup");
 
-        document.querySelectorAll(".popuptext.show")
-            .forEach(el => el.classList.remove("show"));
+            button.appendChild(popup);
 
-        popup.classList.toggle("show");
+        }
 
-    }
+        //---------------------------------
+        // Click behavior
+        //---------------------------------
 
-});
-		
+        button.addEventListener("click", async (e) => {
 
-          eventContainer.appendChild(button);
+            e.stopPropagation();
+
+            if (eventData.type === "class") {
+
+                const titleResponse =
+                    await fetch(eventData.title);
+
+                const contentResponse =
+                    await fetch(eventData.content);
+
+                document.getElementById("modal-title").innerHTML =
+                    await titleResponse.text();
+
+                document.getElementById("modal-body").innerHTML =
+                    await contentResponse.text();
+
+                modal.classList.add("show");
+
+            } else {
+
+                document.querySelectorAll(".popuptext.show")
+                    .forEach(el => {
+
+                        if (el !== popup) {
+                            el.classList.remove("show");
+                        }
+
+                    });
+
+                popup.classList.toggle("show");
+
+            }
 
         });
 
-        cell.appendChild(eventContainer);
+        eventContainer.appendChild(button);
 
-      }
+    });
 
-    }
+    cell.appendChild(eventContainer);
+
+}   
 
     calendar.appendChild(cell);
 
@@ -218,4 +261,10 @@ const modal = document.getElementById("myModal");
 
 closeModal.addEventListener("click", () => {
     modal.classList.remove("show");
+});
+	document.addEventListener("click", () => {
+
+    document.querySelectorAll(".popuptext.show")
+        .forEach(el => el.classList.remove("show"));
+
 });
