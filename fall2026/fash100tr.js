@@ -139,7 +139,7 @@ function createMonth(year, month) {
       cell.appendChild(dateLabel);
 
       // Events
-      const key = formatDate(year, month, dayNumber);
+const key = formatDate(year, month, dayNumber);
 
 if (events[key]) {
 
@@ -148,10 +148,7 @@ if (events[key]) {
 
     events[key].forEach(eventData => {
 
-        //---------------------------------
         // Create button
-        //---------------------------------
-
         const button = document.createElement("button");
 
         button.className =
@@ -159,10 +156,7 @@ if (events[key]) {
 
         button.title = eventData.type;
 
-        //---------------------------------
         // Icon
-        //---------------------------------
-
         const icon = document.createElement("img");
 
         icon.src = eventData.icon;
@@ -170,40 +164,28 @@ if (events[key]) {
 
         button.appendChild(icon);
 
-        //---------------------------------
-        // Popup (everything except class)
-        //---------------------------------
-
+        // Popup for soft, grade, and extra
         let popup = null;
 
         if (eventData.type !== "class") {
 
             popup = document.createElement("span");
-
             popup.className = "popuptext";
             popup.textContent = eventData.message;
 
             button.classList.add("popup");
-
             button.appendChild(popup);
-
         }
 
-        //---------------------------------
         // Click behavior
-        //---------------------------------
-
         button.addEventListener("click", async (e) => {
 
             e.stopPropagation();
 
             if (eventData.type === "class") {
 
-                const titleResponse =
-                    await fetch(eventData.title);
-
-                const contentResponse =
-                    await fetch(eventData.content);
+                const titleResponse = await fetch(eventData.title);
+                const contentResponse = await fetch(eventData.content);
 
                 document.getElementById("modal-title").innerHTML =
                     await titleResponse.text();
@@ -225,7 +207,6 @@ if (events[key]) {
                     });
 
                 popup.classList.toggle("show");
-
             }
 
         });
@@ -235,7 +216,6 @@ if (events[key]) {
     });
 
     cell.appendChild(eventContainer);
-
 }   
 
     calendar.appendChild(cell);
