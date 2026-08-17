@@ -1,4 +1,3 @@
-console.log("FASH calendar JavaScript has loaded");
 const container = document.getElementById("calendarContainer");
 //FASH 100 TR Fall 2026
 let startYear = 2026;
@@ -172,7 +171,7 @@ if (events[key]) {
 
             popup = document.createElement("span");
             popup.className = "popuptext";
-            popup.textContent = eventData.message;
+            popup.textContent = eventData.tooltip;
 
             button.classList.add("popup");
             button.appendChild(popup);
@@ -219,13 +218,13 @@ if (events[key]) {
     cell.appendChild(eventContainer);
 }   
 
-    calendar.appendChild(cell);
+        calendar.appendChild(cell);
 
-  }
+} // end for loop
 
-  return monthContainer;
+return monthContainer;
 
-}// end createMonth()
+} // end createMonth()
 
 // generate 3 months
 for (let i = 0; i < 3; i++) {
