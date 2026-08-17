@@ -244,7 +244,7 @@ if (events[key]) {
 
   return monthContainer;
 
-}
+}// end createMonth()
 
 // generate 3 months
 for (let i = 0; i < 3; i++) {
@@ -255,11 +255,16 @@ for (let i = 0; i < 3; i++) {
   );
 }
 
-// Modal close button
+	// Modal close button
 const closeModal = document.getElementById("closeModal");
 const modal = document.getElementById("myModal");
 
 closeModal.addEventListener("click", () => {
     modal.classList.remove("show");
 });
-	
+	document.addEventListener("click", () => {
+
+    document.querySelectorAll(".popuptext.show")
+        .forEach(el => el.classList.remove("show"));
+
+});
