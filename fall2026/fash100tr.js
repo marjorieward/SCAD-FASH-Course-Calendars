@@ -220,8 +220,8 @@ if (events[key]) {
 
         calendar.appendChild(cell);
 
-} // end for loop
-
+} 
+  } // end for loop
 return monthContainer;
 
 } // end createMonth()
