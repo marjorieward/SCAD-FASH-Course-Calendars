@@ -1,3 +1,4 @@
+console.log("FASH calendar JavaScript has loaded");
 const container = document.getElementById("calendarContainer");
 //FASH 100 TR Fall 2026
 let startYear = 2026;
