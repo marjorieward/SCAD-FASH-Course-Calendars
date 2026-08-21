@@ -3,7 +3,7 @@ const container = document.getElementById("calendarContainer");
 let startYear = 2026;
 let startMonth = 8; // September (0-indexed)
 
-// example event data (optional)
+// event data
 const events = {
   "2026-09-15": [
 {
@@ -112,116 +112,123 @@ function createMonth(year, month) {
   });
 
   // Month data
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
-  const startDay = new Date(year, month, 1).getDay();
+const daysInMonth = new Date(year, month + 1, 0).getDate();
+const startDay = new Date(year, month, 1).getDay();
 
-  const totalCells = startDay + daysInMonth;
+const totalCells = startDay + daysInMonth;
 
-  for (let i = 0; i < totalCells; i++) {
+for (let i = 0; i < totalCells; i++) {
 
     const cell = document.createElement("div");
 
-    const dayNumber = i - startDay + 1;
-
+    // Empty cells before the first day of the month
     if (i < startDay) {
 
-      cell.className = "day--disabled";
+        cell.className = "day--disabled";
 
     } else {
 
-      cell.className = "day";
+        cell.className = "day";
 
-      // Date number
-      const dateLabel = document.createElement("div");
-      dateLabel.className = "date-label";
-      dateLabel.textContent = dayNumber;
+        // Date number
+        const dayNumber = i - startDay + 1;
 
-      cell.appendChild(dateLabel);
+        const dateLabel = document.createElement("div");
+        dateLabel.className = "date-label";
+        dateLabel.textContent = dayNumber;
 
-      // Events
-const key = formatDate(year, month, dayNumber);
+        cell.appendChild(dateLabel);
 
-if (events[key]) {
+        // Events
+        const key = formatDate(year, month, dayNumber);
 
-    const eventContainer = document.createElement("div");
-    eventContainer.className = "event-container";
+        if (events[key]) {
 
-    events[key].forEach(eventData => {
+            const eventContainer = document.createElement("div");
+            eventContainer.className = "event-container";
 
-        // Create button
-        const button = document.createElement("button");
+            events[key].forEach(eventData => {
 
-        button.className =
-            `calendar-event-btn calendar-event-btn--${eventData.type}`;
+                // Create button
+                const button = document.createElement("button");
 
-        button.title = eventData.type;
+                button.className =
+                    `calendar-event-btn calendar-event-btn--${eventData.type}`;
 
-        // Icon
-        const icon = document.createElement("img");
+                button.title = eventData.type;
 
-        icon.src = eventData.icon;
-        icon.className = "event-icon";
+                // Icon
+                const icon = document.createElement("img");
 
-        button.appendChild(icon);
+                icon.src = eventData.icon;
+                icon.className = "event-icon";
 
-        // Popup for soft, grade, and extra
-        let popup = null;
+                button.appendChild(icon);
 
-        if (eventData.type !== "class") {
+                // Popup for soft, grade, and extra
+                let popup = null;
 
-            popup = document.createElement("span");
-            popup.className = "popuptext";
-            popup.textContent = eventData.tooltip;
+                if (eventData.type !== "class") {
 
-            button.classList.add("popup");
-            button.appendChild(popup);
+                    popup = document.createElement("span");
+                    popup.className = "popuptext";
+                    popup.textContent = eventData.tooltip;
+
+                    button.classList.add("popup");
+                    button.appendChild(popup);
+                }
+
+                // Click behavior
+                button.addEventListener("click", async (e) => {
+
+                    e.stopPropagation();
+
+                    if (eventData.type === "class") {
+
+                        const titleResponse =
+                            await fetch(eventData.title);
+
+                        const contentResponse =
+                            await fetch(eventData.content);
+
+                        document.getElementById("modal-title").innerHTML =
+                            await titleResponse.text();
+
+                        document.getElementById("modal-body").innerHTML =
+                            await contentResponse.text();
+
+                        modal.classList.add("show");
+
+                    } else {
+
+                        document.querySelectorAll(".popuptext.show")
+                            .forEach(el => {
+
+                                if (el !== popup) {
+                                    el.classList.remove("show");
+                                }
+
+                            });
+
+                        popup.classList.toggle("show");
+                    }
+
+                });
+
+                eventContainer.appendChild(button);
+
+            });
+
+            cell.appendChild(eventContainer);
         }
+    }
 
-        // Click behavior
-        button.addEventListener("click", async (e) => {
+    // Add the cell to the calendar
+    calendar.appendChild(cell);
 
-            e.stopPropagation();
+}
 
-            if (eventData.type === "class") {
-
-                const titleResponse = await fetch(eventData.title);
-                const contentResponse = await fetch(eventData.content);
-
-                document.getElementById("modal-title").innerHTML =
-                    await titleResponse.text();
-
-                document.getElementById("modal-body").innerHTML =
-                    await contentResponse.text();
-
-                modal.classList.add("show");
-
-            } else {
-
-                document.querySelectorAll(".popuptext.show")
-                    .forEach(el => {
-
-                        if (el !== popup) {
-                            el.classList.remove("show");
-                        }
-
-                    });
-
-                popup.classList.toggle("show");
-            }
-
-        });
-
-        eventContainer.appendChild(button);
-
-    });
-
-    cell.appendChild(eventContainer);
-}   
-
-        calendar.appendChild(cell);
-
-} 
-  } // end for loop
+// Return the completed month
 return monthContainer;
 
 } // end createMonth()
