@@ -9,7 +9,7 @@ const events = {
 {
     type: "class",
     title: "templates/Title_01.html",
-    content: "templates/Class01_Content.html",
+    content: "templates/fash100/Class01_Content.html",
     icon: "../icons/iconClass.svg"
 },
 {
