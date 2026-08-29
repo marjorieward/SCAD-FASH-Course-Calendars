@@ -267,16 +267,27 @@ h3 {
 	background-color: #03BC35;
 }
 .calendar-event-btn {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
     border: none;
     background: transparent;
     cursor: pointer;
-    padding: 2px;
+    vertical-align: top;
+}
+
+.event-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
 }
 
 .event-icon {
-    width: 32px;
-    height: 32px;
     display: block;
+	width: 32px;
+    height: 32px;
 }
 /* The Modal (background) */
 .modal {
