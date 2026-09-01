@@ -5,59 +5,171 @@ let startMonth = 8; // September (0-indexed)
 
 // event data
 const events = {
-  "2026-09-15": [
-{
-    type: "class",
-    title: "../templates/fash100/Title_01.html",
-    content: "../templates/fash100/Class01_Content.html",
-    icon: "../icons/iconClass.svg"
-},
-{
+  "2026-09-14": [{
     type: "soft",
-    tooltip: "Bring your patternmaking kit.",
+    tooltip: "Complete PQA",
     icon: "../icons/iconSoft.svg"
-},
-{
-    type: "grade",
-    tooltip: "Quiz 1 closes tonight at 11:59 PM.",
-    icon: "../icons/iconGrade.svg"
-},
-{
-    type: "extra",
-    tooltip: "Open Lab: 5:00–7:00 PM.",
-    icon: "../icons/iconExtra.svg"
-}
-],
+}],
+	"2026-09-15": [{
+    type: "class",
+    title: "templates/Title_01.html",
+    content: "templates/Class01_Content.html",
+    icon: "../icons/iconClass.svg"
+}],
   "2026-09-17": [{
       type: "class",
       title: "../templates/fash100/Title_02.html",
       content: "../templates/fash100/Class02_Content.html",
       icon: "../icons/iconClass.svg"
-    },
-				{
-    type: "grade",
-    tooltip: "Project 1 due before 11:59 PM.",
-    icon: "../icons/iconGrade.svg"
-}
-				],
+    }],
   "2026-09-22": [{
 	  type: "class",
       title: "../templates/fash100/Title_03.html",
       content: "../templates/fash100/Class03_Content.html",
       icon: "../icons/iconClass.svg"
-  },
-	{
-    type: "extra",
-    tooltip: "Open Lab: Thursday 5–7 PM in Room 212.",
-    icon: "../icons/iconExtra.svg"
-}			
-				],
+  }],
 	"2026-09-24":[{
 		type: "class",
       title: "../templates/fash100/Title_04.html",
       content: "../templates/fash100/Class04_Content.html",
       icon: "../icons/iconClass.svg"
+	},
+	{
+    type: "grade",
+    tooltip: "Sewing Machine Test Due",
+    icon: "../icons/iconGrade.svg"
+}],
+	"2026-09-29":[{
+		type: "class",
+      title: "../templates/fash100/Title_05.html",
+      content: "../templates/fash100/Class05_Content.html",
+      icon: "../icons/iconClass.svg"
 	}],
+	"2026-10-01":[{
+		type: "class",
+      title: "../templates/fash100/Title_06.html",
+      content: "../templates/fash100/Class06_Content.html",
+      icon: "../icons/iconClass.svg"
+	}],
+	"2026-10-06":[{
+		type: "class",
+      title: "../templates/fash100/Title_07.html",
+      content: "../templates/fash100/Class07_Content.html",
+      icon: "../icons/iconClass.svg"
+	},
+	{
+    type: "grade",
+    tooltip: "Sample Book One Due",
+    icon: "../icons/iconGrade.svg"
+}],
+	"2026-10-08":[{
+		type: "class",
+      title: "../templates/fash100/Title_08.html",
+      content: "../templates/fash100/Class08_Content.html",
+      icon: "../icons/iconClass.svg"
+	}],
+	"2026-10-09":[{
+    type: "extra",
+    tooltip: "Extra Help 10am-12pm",
+    icon: "../icons/iconExtra.svg"
+}],
+	"2026-10-13":[{
+		type: "class",
+      title: "../templates/fash100/Title_09.html",
+      content: "../templates/fash100/Class09_Content.html",
+      icon: "../icons/iconClass.svg"
+	}],
+	"2026-10-15":[{
+		type: "class",
+      title: "../templates/fash100/Title_10.html",
+      content: "../templates/fash100/Class10_Content.html",
+      icon: "../icons/iconClass.svg"
+	}],
+	"2026-10-20":[{
+		type: "class",
+      title: "../templates/fash100/Title_11.html",
+      content: "../templates/fash100/Class11_Content.html",
+      icon: "../icons/iconClass.svg"
+	},
+	{
+    type: "grade",
+    tooltip: "Sample Book Two Due",
+    icon: "../icons/iconGrade.svg"
+}],
+	"2026-10-22":[{
+		type: "class",
+      title: "../templates/fash100/Title_12.html",
+      content: "../templates/fash100/Class12_Content.html",
+      icon: "../icons/iconClass.svg"
+	}],
+	"2026-10-27":[{
+		type: "class",
+      title: "../templates/fash100/Title_13.html",
+      content: "../templates/fash100/Class13_Content.html",
+      icon: "../icons/iconClass.svg"
+	}],
+	"2026-10-29":[{
+		type: "class",
+      title: "../templates/fash100/Title_14.html",
+      content: "../templates/fash100/Class14_Content.html",
+      icon: "../icons/iconClass.svg"
+	},
+	{
+    type: "grade",
+    tooltip: "Skirt Critique and Process Journal Due",
+    icon: "../icons/iconGrade.svg"
+}],
+	"2026-11-03":[{
+		type: "class",
+      title: "../templates/fash100/Title_15.html",
+      content: "../templates/fash100/Class15_Content.html",
+      icon: "../icons/iconClass.svg"
+	}],
+	"2026-11-05":[{
+		type: "class",
+      title: "../templates/fash100/Title_16.html",
+      content: "../templates/fash100/Class16_Content.html",
+      icon: "../icons/iconClass.svg"
+	}],
+	"2026-11-06":[{
+    type: "extra",
+    tooltip: "Extra Help 10am-12pm",
+    icon: "../icons/iconExtra.svg"
+}],
+	"2026-11-10":[{
+		type: "class",
+      title: "../templates/fash100/Title_17.html",
+      content: "../templates/fash100/Class17_Content.html",
+      icon: "../icons/iconClass.svg"
+	},
+	{
+    type: "grade",
+    tooltip: "Fitted Shirt Critique and Process Journal Due",
+    icon: "../icons/iconGrade.svg"
+}],
+	"2026-11-12":[{
+		type: "class",
+      title: "../templates/fash100/Title_18.html",
+      content: "../templates/fash100/Class18_Content.html",
+      icon: "../icons/iconClass.svg"
+	}],
+	"2026-11-17":[{
+	type: "class",
+      title: "../templates/fash100/Title_19.html",
+      content: "../templates/fash100/Class19_Content.html",
+      icon: "../icons/iconClass.svg"
+},
+	{
+    type: "grade",
+    tooltip: "Unlined Jacket Critique and Process Journal Due",
+    icon: "../icons/iconGrade.svg"
+}],
+	"2026-11-19":[{
+	type: "class",
+      title: "../templates/fash100/Title_20.html",
+      content: "../templates/fash100/Class20_Content.html",
+      icon: "../icons/iconClass.svg"
+}],
 	
 	
 	
