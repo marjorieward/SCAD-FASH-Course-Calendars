@@ -12,8 +12,8 @@ const events = {
 }],
 	"2026-09-15": [{
     type: "class",
-    title: "templates/Title_01.html",
-    content: "templates/Class01_Content.html",
+    title: "../templates/fash100/Title_01.html",
+    content: "../templates/fash100/Class01_Content.html",
     icon: "../icons/iconClass.svg"
 }],
   "2026-09-17": [{
