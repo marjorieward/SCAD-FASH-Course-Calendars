@@ -5,16 +5,16 @@ let startMonth = 8; // September (0-indexed)
 
 // event data
 const events = {
+	"2026-09-13": [{
+    type: "soft",
+    tooltip: "Complete PQA",
+    icon: "../icons/iconSoft.svg"
+}],
 	"2026-09-14": [{
     type: "class",
     title: "../templates/fash216/Title_01.html",
     content: "../templates/fash216/Class01_Content.html",
     icon: "../icons/iconClass.svg"
-},
-	{
-    type: "soft",
-    tooltip: "Complete PQA",
-    icon: "../icons/iconSoft.svg"
 }],
   "2026-09-16": [{
       type: "class",
