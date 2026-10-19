@@ -90,18 +90,18 @@ const events = {
       title: "../templates/fash100/Title_11.html",
       content: "../templates/fash100/Class11_Content.html",
       icon: "../icons/iconClass.svg"
+	}],
+	"2026-10-22":[{
+		type: "class",
+      title: "../templates/fash100/Title_12.html",
+      content: "../templates/fash100/Class12_Content.html",
+      icon: "../icons/iconClass.svg"
 	},
 	{
     type: "grade",
     tooltip: "Sample Book Two Due",
     icon: "../icons/iconGrade.svg"
 }],
-	"2026-10-22":[{
-		type: "class",
-      title: "../templates/fash100/Title_12.html",
-      content: "../templates/fash100/Class12_Content.html",
-      icon: "../icons/iconClass.svg"
-	}],
 	"2026-10-27":[{
 		type: "class",
       title: "../templates/fash100/Title_13.html",
