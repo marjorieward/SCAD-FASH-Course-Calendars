@@ -1,40 +1,40 @@
 const container = document.getElementById("calendarContainer");
 //FASH 100 TR Fall 2026
-let startYear = 2026;
-let startMonth = 8; // September (0-indexed)
+let startYear = 2027;
+let startMonth = 0; // September (0-indexed)
 
 // event data
 const events = {
-	"2026-09-13": [{
+	"2027-01-03": [{
     type: "soft",
     tooltip: "Complete PQA",
     icon: "../icons/iconSoft.svg"
 }],
-	"2026-09-14": [{
+	"2027-01-04": [{
     type: "class",
     title: "../templates/fash216/Title_01.html",
     content: "../templates/fash216/Class01_Content.html",
     icon: "../icons/iconClass.svg"
 }],
-  "2026-09-16": [{
+  "2027-01-06": [{
       type: "class",
       title: "../templates/fash216/Title_02.html",
       content: "../templates/fash216/Class02_Content.html",
       icon: "../icons/iconClass.svg"
     }],
-  "2026-09-21": [{
+  "2027-01-11": [{
 	  type: "class",
       title: "../templates/fash216/Title_03.html",
       content: "../templates/fash216/Class03_Content.html",
       icon: "../icons/iconClass.svg"
   }],
-	"2026-09-23":[{
+	"2027-01-13":[{
 		type: "class",
       title: "../templates/fash216/Title_04.html",
       content: "../templates/fash216/Class04_Content.html",
       icon: "../icons/iconClass.svg"
 	}],
-	"2026-09-28":[{
+	"2027-01-18":[{
 		type: "class",
       title: "../templates/fash216/Title_05.html",
       content: "../templates/fash216/Class05_Content.html",
@@ -45,13 +45,13 @@ const events = {
     tooltip: "B5 and Trousers Due",
     icon: "../icons/iconGrade.svg"
 },],
-	"2026-09-30":[{
+	"2027-01-20":[{
 		type: "class",
       title: "../templates/fash216/Title_06.html",
       content: "../templates/fash216/Class06_Content.html",
       icon: "../icons/iconClass.svg"
 	}],
-	"2026-10-05":[{
+	"2027-01-25":[{
 		type: "class",
       title: "../templates/fash216/Title_07.html",
       content: "../templates/fash216/Class07_Content.html",
@@ -62,30 +62,30 @@ const events = {
     tooltip: "Sample Book One Due",
     icon: "../icons/iconGrade.svg"
 }],
-	"2026-10-07":[{
+	"2027-01-27":[{
 		type: "class",
       title: "../templates/fash216/Title_08.html",
       content: "../templates/fash216/Class08_Content.html",
       icon: "../icons/iconClass.svg"
 	}],
-	"2026-10-09":[{
+	"2027-01-29":[{
     type: "extra",
     tooltip: "Extra Help 10am-12pm",
     icon: "../icons/iconExtra.svg"
 }],
-	"2026-10-12":[{
+	"2027-02-01":[{
 		type: "class",
       title: "../templates/fash216/Title_09.html",
       content: "../templates/fash216/Class09_Content.html",
       icon: "../icons/iconClass.svg"
 	}],
-	"2026-10-14":[{
+	"2027-02-03":[{
 		type: "class",
       title: "../templates/fash216/Title_10.html",
       content: "../templates/fash216/Class10_Content.html",
       icon: "../icons/iconClass.svg"
 	}],
-	"2026-10-19":[{
+	"2027-02-08":[{
 		type: "class",
       title: "../templates/fash216/Title_11.html",
       content: "../templates/fash216/Class11_Content.html",
@@ -96,13 +96,13 @@ const events = {
     tooltip: "Sample Book Two Due",
     icon: "../icons/iconGrade.svg"
 }],
-	"2026-10-21":[{
+	"2027-02-10":[{
 		type: "class",
       title: "../templates/fash216/Title_12.html",
       content: "../templates/fash216/Class12_Content.html",
       icon: "../icons/iconClass.svg"
 	}],
-	"2026-10-26":[{
+	"2027-02-15":[{
 		type: "class",
       title: "../templates/fash216/Title_13.html",
       content: "../templates/fash216/Class13_Content.html",
@@ -113,13 +113,13 @@ const events = {
     tooltip: "Modular Dress Critique and Process Journal Due",
     icon: "../icons/iconGrade.svg"
 },],
-	"2026-10-28":[{
+	"2027-02-17":[{
 		type: "class",
       title: "../templates/fash216/Title_14.html",
       content: "../templates/fash216/Class14_Content.html",
       icon: "../icons/iconClass.svg"
 	}],
-	"2026-11-02":[{
+	"2027-02-22":[{
 		type: "class",
       title: "../templates/fash216/Title_15.html",
       content: "../templates/fash216/Class15_Content.html",
@@ -130,30 +130,30 @@ const events = {
     tooltip: "Rub-Off Process Journal Due",
     icon: "../icons/iconGrade.svg"
 }],
-	"2026-11-04":[{
+	"2027-02-24":[{
 		type: "class",
       title: "../templates/fash216/Title_16.html",
       content: "../templates/fash216/Class16_Content.html",
       icon: "../icons/iconClass.svg"
 	}],
-	"2026-11-06":[{
+	"2027-02-26":[{
     type: "extra",
     tooltip: "Extra Help 10am-12pm",
     icon: "../icons/iconExtra.svg"
 }],
-	"2026-11-09":[{
+	"2027-03-01":[{
 		type: "class",
       title: "../templates/fash216/Title_17.html",
       content: "../templates/fash216/Class17_Content.html",
       icon: "../icons/iconClass.svg"
 	}],
-	"2026-11-11":[{
+	"2027-03-03":[{
 		type: "class",
       title: "../templates/fash216/Title_18.html",
       content: "../templates/fash216/Class18_Content.html",
       icon: "../icons/iconClass.svg"
 	}],
-	"2026-11-16":[{
+	"2027-03-08":[{
 	type: "class",
       title: "../templates/fash216/Title_19.html",
       content: "../templates/fash216/Class19_Content.html",
@@ -164,7 +164,7 @@ const events = {
     tooltip: "Runway Recreation Critique and Process Journal Due",
     icon: "../icons/iconGrade.svg"
 }],
-	"2026-11-18":[{
+	"2027-03-10":[{
 	type: "class",
       title: "../templates/fash216/Title_20.html",
       content: "../templates/fash216/Class20_Content.html",
