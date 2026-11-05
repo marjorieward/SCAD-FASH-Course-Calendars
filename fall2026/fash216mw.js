@@ -138,7 +138,7 @@ const events = {
 	}],
 	"2026-11-06":[{
     type: "extra",
-    tooltip: "Extra Help 10am-12pm",
+    tooltip: "Extra Help 10am-12pm Eckburg Room 201",
     icon: "../icons/iconExtra.svg"
 }],
 	"2026-11-09":[{
